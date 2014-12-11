@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../layout.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+
+    <ui:define name="content">
+      
+        
+         <h:form>
+             <p:panel header="Agregar Personal">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_id}" for="id" />
+                    <p:inputText id="id" value="#{personalController.selected.id}" title="#{bundle.CreatePersonalTitle_id}" required="true" requiredMessage="#{bundle.CreatePersonalRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_nombre}" for="nombre" />
+                    <p:inputText id="nombre" value="#{personalController.selected.nombre}" title="#{bundle.CreatePersonalTitle_nombre}" required="true" requiredMessage="#{bundle.CreatePersonalRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_apellidoPaterno}" for="apellidoPaterno" />
+                    <p:inputText id="apellidoPaterno" value="#{personalController.selected.apellidoPaterno}" title="#{bundle.CreatePersonalTitle_apellidoPaterno}" required="true" requiredMessage="#{bundle.CreatePersonalRequiredMessage_apellidoPaterno}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_apellidoMaterno}" for="apellidoMaterno" />
+                    <p:inputText id="apellidoMaterno" value="#{personalController.selected.apellidoMaterno}" title="#{bundle.CreatePersonalTitle_apellidoMaterno}" required="true" requiredMessage="#{bundle.CreatePersonalRequiredMessage_apellidoMaterno}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_direccion}" for="direccion" />
+                    <p:inputText id="direccion" value="#{personalController.selected.direccion}" title="#{bundle.CreatePersonalTitle_direccion}" required="true" requiredMessage="#{bundle.CreatePersonalRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_sexo}"  />
+                    <p:selectOneMenu  value="#{personalController.selected.sexo}" style="width:125px">
+                        <f:selectItem itemLabel="Selecciona Sexo" itemValue="" />
+                        <f:selectItem itemLabel="Masculino" itemValue="M" />
+                        <f:selectItem itemLabel="Femenino" itemValue="F" />
+                       
+                       </p:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePersonalLabel_codigoPostal}" for="codigoPostal" />
+                    <p:inputText id="codigoPostal" value="#{personalController.selected.codigoPostal}" title="#{bundle.CreatePersonalTitle_codigoPostal}" required="true" requiredMessage="#{bundle.CreatePersonalRequiredMessage_codigoPostal}"/>
+                </h:panelGrid>
+                <br />
+                <p:commandButton action="#{personalController.create}" value="#{bundle.CreatePersonalSaveLink}" />
+                <br />
+                <br />
+                <p:commandButton action="#{personalController.prepareList}" value="#{bundle.CreatePersonalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePersonalIndexLink}"/>
+                </p:panel>
+            </h:form>
+    </ui:define>
+
+</ui:composition>

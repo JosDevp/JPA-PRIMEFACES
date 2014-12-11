@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../layout.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+  
+    <ui:define name="content">
+        <p:accordionPanel>
+        <p:tab title="Vista Personal">
+           <h:form>
+                <h:panelGrid columns="2">
+                   
+                    <h:outputText value="#{bundle.ViewPersonalLabel_id}"/>
+                    <h:outputText value="#{personalController.selected.id}" title="#{bundle.ViewPersonalTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewPersonalLabel_nombre}"/>
+                    <h:outputText value="#{personalController.selected.nombre}" title="#{bundle.ViewPersonalTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewPersonalLabel_apellidoPaterno}"/>
+                    <h:outputText value="#{personalController.selected.apellidoPaterno}" title="#{bundle.ViewPersonalTitle_apellidoPaterno}"/>
+                    <h:outputText value="#{bundle.ViewPersonalLabel_apellidoMaterno}"/>
+                    <h:outputText value="#{personalController.selected.apellidoMaterno}" title="#{bundle.ViewPersonalTitle_apellidoMaterno}"/>
+                    <h:outputText value="#{bundle.ViewPersonalLabel_direccion}"/>
+                    <h:outputText value="#{personalController.selected.direccion}" title="#{bundle.ViewPersonalTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewPersonalLabel_sexo}"/>
+                    <h:outputText value="#{personalController.selected.sexo}" title="#{bundle.ViewPersonalTitle_sexo}"/>
+                    <h:outputText value="#{bundle.ViewPersonalLabel_codigoPostal}"/>
+                    <h:outputText value="#{personalController.selected.codigoPostal}" title="#{bundle.ViewPersonalTitle_codigoPostal}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{personalController.destroyAndView}" value="#{bundle.ViewPersonalDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPersonalEditLink}"/>
+                <br />
+                <h:commandLink action="#{personalController.prepareCreate}" value="#{bundle.ViewPersonalCreateLink}" />
+                <br />
+                <h:commandLink action="#{personalController.prepareList}" value="#{bundle.ViewPersonalShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPersonalIndexLink}"/>
+
+            </h:form>
+        </p:tab>
+        </p:accordionPanel>
+        
+        
+    </ui:define>
+
+</ui:composition>

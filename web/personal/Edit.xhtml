@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../layout.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+  
+
+    <ui:define name="content">
+      
+        <h:form>
+              <p:accordionPanel>
+            <p:tab title="Editar Personal">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPersonalLabel_id}" for="id" />
+                    <p:inputText id="id" value="#{personalController.selected.id}" title="#{bundle.EditPersonalTitle_id}" required="true" requiredMessage="#{bundle.EditPersonalRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditPersonalLabel_nombre}" for="nombre" />
+                    <p:inputText id="nombre" value="#{personalController.selected.nombre}" title="#{bundle.EditPersonalTitle_nombre}" required="true" requiredMessage="#{bundle.EditPersonalRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditPersonalLabel_apellidoPaterno}" for="apellidoPaterno" />
+                    <p:inputText id="apellidoPaterno" value="#{personalController.selected.apellidoPaterno}" title="#{bundle.EditPersonalTitle_apellidoPaterno}" required="true" requiredMessage="#{bundle.EditPersonalRequiredMessage_apellidoPaterno}"/>
+                    <h:outputLabel value="#{bundle.EditPersonalLabel_apellidoMaterno}" for="apellidoMaterno" />
+                    <p:inputText id="apellidoMaterno" value="#{personalController.selected.apellidoMaterno}" title="#{bundle.EditPersonalTitle_apellidoMaterno}" required="true" requiredMessage="#{bundle.EditPersonalRequiredMessage_apellidoMaterno}"/>
+                    <h:outputLabel value="#{bundle.EditPersonalLabel_direccion}" for="direccion" />
+                    <p:inputText id="direccion" value="#{personalController.selected.direccion}" title="#{bundle.EditPersonalTitle_direccion}" required="true" requiredMessage="#{bundle.EditPersonalRequiredMessage_direccion}"/>
+                      <h:outputLabel value="#{bundle.CreatePersonalLabel_sexo}"  />
+                      <p:selectOneMenu  value="#{personalController.selected.sexo}"  required="true" requiredMessage="#{bundle.EditPersonalRequiredMessage_sexo}">
+                        <f:selectItem itemLabel="Selecciona Sexo" itemValue="" />
+                        <f:selectItem itemLabel="Masculino" itemValue="M" />
+                        <f:selectItem itemLabel="Femenino" itemValue="F" />
+                       
+                       </p:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPersonalLabel_codigoPostal}" for="codigoPostal" />
+                    <h:inputText id="codigoPostal" value="#{personalController.selected.codigoPostal}" title="#{bundle.EditPersonalTitle_codigoPostal}" required="true" requiredMessage="#{bundle.EditPersonalRequiredMessage_codigoPostal}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{personalController.update}" value="#{bundle.EditPersonalSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPersonalViewLink}"/>
+                <br />
+                <h:commandLink action="#{personalController.prepareList}" value="#{bundle.EditPersonalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPersonalIndexLink}" />
+            </p:tab>
+              </p:accordionPanel>
+            </h:form>
+    </ui:define>
+
+</ui:composition>
